@@ -1,0 +1,169 @@
+.projects {
+  background-color: var(--background);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+}
+
+.projects::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(0, 255, 136, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 100% 0%, rgba(0, 204, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(255, 51, 102, 0.15) 0%, transparent 50%),
+    linear-gradient(45deg, rgba(0, 0, 0, 0.95) 0%, transparent 50%),
+    linear-gradient(-45deg, rgba(0, 0, 0, 0.95) 0%, transparent 50%);
+  z-index: 0;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.project-card {
+  background: rgba(26, 26, 26, 0.8);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 255, 136, 0.1);
+  backdrop-filter: blur(10px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 255, 136, 0.2);
+  border-color: rgba(0, 255, 136, 0.3);
+}
+
+.project-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, var(--card-bg) 0%, rgba(26, 26, 26, 0.9) 100%);
+}
+
+.project-content h3 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-content p {
+  color: var(--light-text);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-links a {
+  padding: 0.5rem 1rem;
+  background: var(--gradient-1);
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0, 255, 136, 0.2);
+}
+
+.project-links a:hover {
+  background: var(--gradient-2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 51, 102, 0.3);
+}
+
+.projects .floating-shape {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: var(--accent-color);
+  filter: blur(80px);
+  opacity: 0.15;
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.projects .floating-shape:nth-child(1) {
+  top: 20%;
+  right: 15%;
+  animation-delay: 0s;
+  background: var(--accent-color);
+}
+
+.projects .floating-shape:nth-child(2) {
+  bottom: 30%;
+  left: 15%;
+  background: var(--accent-color-2);
+  animation-delay: -4s;
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .project-image {
+    height: 200px;
+  }
+
+  .project-content {
+    padding: 1.5rem;
+  }
+
+  .project-content h3 {
+    font-size: 1.5rem;
+  }
+} 
