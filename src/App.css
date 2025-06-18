@@ -207,8 +207,17 @@ section {
 }
 
 @media (max-width: 768px) {
-  section {
-    padding: 4rem 0;
+  section, .about, .contact, .projects, .skills {
+    margin: 0 auto;
+    max-width: 95vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    box-sizing: border-box;
+  }
+  .contact-info, .contact-form, .about-content, .projects-grid, .skills-content {
+    margin: 0 auto;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
   .section-title {
