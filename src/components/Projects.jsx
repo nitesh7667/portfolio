@@ -6,7 +6,7 @@ const Projects = () => {
       title: 'Watch Together',
       description: 'A video streaming platform that allows users to watch videos together through URL sharing. Features include synchronized playback and real-time chat.',
       technologies: ['React', 'Node.js', 'Express', 'Socket.io'],
-      image: '/watch Together.jpg'
+      image: '/watch together.jpg'
     },
     {
       title: 'Spotify',
