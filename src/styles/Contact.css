@@ -235,9 +235,14 @@
 @media (max-width: 768px) {
   .contact-container {
     flex-direction: column;
-    gap: 3rem;
+    align-items: center;
+    justify-content: center;
   }
-
+  .contact-info, .contact-form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
   .contact-info {
     padding: 3rem 0;
   }
@@ -247,6 +252,13 @@
   }
 
   .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-image {
     width: 120px;
     height: 120px;
   }
