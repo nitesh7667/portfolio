@@ -214,10 +214,24 @@ section {
     padding-right: 2vw;
     box-sizing: border-box;
   }
-  .contact-info, .contact-form, .about-content, .projects-grid, .skills-content {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 100vw;
+    padding: 0;
     margin: 0 auto;
-    max-width: 100%;
+  }
+  .contact-info,
+  .contact-form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
     box-sizing: border-box;
+    padding-left: 2vw;
+    padding-right: 2vw;
   }
   
   .section-title {
