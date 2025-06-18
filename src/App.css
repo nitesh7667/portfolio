@@ -106,7 +106,7 @@ main {
 }
 
 section {
-  padding: 6rem 2rem;
+  padding: 6rem 0;
   position: relative;
   width: 100%;
   max-width: 1200px;
@@ -208,11 +208,30 @@ section {
 
 @media (max-width: 768px) {
   section {
-    padding: 4rem 1rem;
+    padding: 4rem 0;
   }
   
   .section-title {
     font-size: 2rem;
     margin-bottom: 3rem;
+  }
+
+  main {
+    padding: 0;
+  }
+
+  .app {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
   }
 }

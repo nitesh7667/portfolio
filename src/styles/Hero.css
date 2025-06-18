@@ -218,11 +218,15 @@
 }
 
 @media (max-width: 768px) {
+  .hero-container {
+    padding: 0;
+  }
+
   .hero-content {
     flex-direction: column;
     text-align: center;
     gap: 2rem;
-    padding: 2rem 1rem;
+    padding: 2rem 0;
   }
 
   .hero-image {
@@ -254,6 +258,14 @@
 }
 
 @media (max-width: 480px) {
+  .hero-container {
+    padding: 0;
+  }
+
+  .hero-content {
+    padding: 1rem 0;
+  }
+
   .hero-image {
     width: 300px;
     height: 300px;

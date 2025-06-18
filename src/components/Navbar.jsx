@@ -9,11 +9,12 @@ const Navbar = () => {
   }
 
   const handleDownload = () => {
-    // Replace this URL with your actual resume file URL
-    const resumeUrl = '/nitesh kumar.pdf' // Your resume file in the public folder
+    // Use the correct path for Vercel deployment
+    const resumeUrl = '/nitesh kumar.pdf' // PDF file in the public folder
     const link = document.createElement('a')
     link.href = resumeUrl
     link.download = 'Nitesh_Kumar_Resume.pdf'
+    link.target = '_blank' // Open in new tab if download fails
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
