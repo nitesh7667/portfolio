@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Contact.css';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -8,12 +9,33 @@ const Contact = () => {
     message: '',
   });
 
+ const [status, setStatus] = useState('');
+ const [submitted, setSubmitted] = useState(null); 
+
+  // Change these to your own EmailJS values
+  const SERVICE_ID = "service_e4nomr2";
+  const TEMPLATE_ID = "template_5rcl0yn";
+  const PUBLIC_KEY = "A7GUgieAylEstZIAT";
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm(prevState => ({
       ...prevState,
       [name]: value
     }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, form, PUBLIC_KEY);
+      setStatus('Your message was sent successfully!');
+      setSubmitted(form); 
+      setForm({ name: '', email: '', message: '' });
+    } catch (error) {
+      setStatus('Failed to send message. Please try again.');
+    }
   };
 
   return (
@@ -37,16 +59,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="contact-form">
-          <form 
-            action="https://formsubmit.co/el/regeyo" 
-            method="POST"
-          >
-            {/* FormSubmit Configuration */}
-            <input type="hidden" name="_subject" value="New Portfolio Contact!" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://niteshkrn7.github.io/portfolio/thanks" />
-            
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input 
@@ -82,6 +95,17 @@ const Contact = () => {
             <button type="submit" className="btn">
               Send Message
             </button>
+            {status && <p className="status-message">{status}</p>}
+
+
+             {submitted && (
+              <div className="delivered-message">
+                <h4>Delivered Message:</h4>
+                <p><strong>Name:</strong> {submitted.name}</p>
+                <p><strong>Email:</strong> {submitted.email}</p>
+                <p><strong>Message:</strong> {submitted.message}</p>
+              </div>
+            )}
           </form>
         </div>
       </div>
